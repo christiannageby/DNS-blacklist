@@ -1,3 +1,0 @@
-configparser
-sqlite3
-sys
