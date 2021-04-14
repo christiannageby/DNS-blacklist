@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """A simple commandline interface to use a sqlite database as a way to define dns-rpz zone to block resolving of bad domains"""
 import configparser
 import sqlite3
@@ -75,7 +76,7 @@ def render_zone():
     """renders a dns-zone and prints it to console"""
     print(ZONEHEAD.format(
         config.get("zone", "ttl"),
-        NOW.strftime("%Y%m%d%H%M"),
+        NOW.strftime("%y%m%d%H%M"),
         config.get("zone", "refresh"),
         config.get("zone", "retry"),
         config.get("zone", "expire"),
