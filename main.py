@@ -22,6 +22,7 @@ $TTL	{}
 ;
 @	IN	NS	localhost.
 """
+
 HELP = """
 RPZ-blocklist
 A command line interface to block some domains from being resolved for DNS-blocking purposes.
@@ -87,7 +88,7 @@ def render_zone():
 if __name__ == '__main__':
     try:
         config = configparser.ConfigParser()
-        config.read("config.ini")
+        config.read("/etc/dns-blacklist/config.ini")
         connection = sqlite3.connect(config.get('database', 'file'))
         cursor = connection.cursor()
         cursor.execute('''CREATE TABLE IF NOT EXISTS domains(domain text PRIMARY KEY NOT NULL, UNIQUE(domain));''')
